@@ -1,15 +1,30 @@
 namespace DesafioPOO.Models
 {
-    public class Nokia : Smartphone
+    public abstract class Smartphone
     {
+        public string Numero { get; set; }
+        private string Modelo { get; set; }
+        private string IMEI { get; set; }
+        private int Memoria { get; set; }
 
-        public Nokia(string numero, string modelo, string imei, int memoria) : base(numero, modelo, imei, memoria)
+        public Smartphone(string numero, string modelo, string imei, int memoria)
         {
-            
+            Numero = numero;
+            Modelo = modelo; 
+            IMEI = imei;
+            Memoria = memoria;
         }
-        public override void InstalarAplicativo(string nome)
+
+        public void Ligar()
         {
-            Console.WriteLine($"Instalando o aplicativo {nome} no Nokia.");
+            Console.WriteLine("Ligando...");
         }
+
+        public void ReceberLigacao()
+        {
+            Console.WriteLine("Recebendo ligação...");
+        }
+
+        public abstract void InstalarAplicativo(string nomeApp);
     }
 }
